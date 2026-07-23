@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Politique de Confidentialité - FINANCIA</title>
+
+    <!-- Google Fonts : Cinzel -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- FontAwesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Palette personnalisée FINANCIA -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Cinzel', 'serif'],
+                    },
+                    colors: {
+
+                        financia: {
+                            dark_blue: '#171e27',
+                            dark: '#383838',
+                            gold: '#D4AF37',
+                            accent: '#d3d3d3',
+                            light: '#F8FAFC'
+                        }
+
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-financia-light text-slate-800 font-sans antialiased flex flex-col min-h-screen">
+
+    <!-- TOPBAR -->
+    <div class="bg-financia-dark text-slate-300 text-xs py-2 px-4 hidden md:block border-b border-slate-700">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-6">
+                <span><i class="fa-solid fa-envelope text-financia-gold mr-2"></i>contact@financia.ga</span>
+                <span><i class="fa-solid fa-phone text-financia-gold mr-2"></i>+241 01 00 00 00</span>
+                <span><i class="fa-solid fa-location-dot text-financia-gold mr-2"></i>Libreville, Gabon</span>
+            </div>
+            <div>
+                <span
+                    class="bg-emerald-500/10 text-emerald-400 text-[10px] px-2 py-0.5 rounded-full border border-emerald-500/20 font-semibold">
+                    <i class="fa-solid fa-shield-halved mr-1"></i> Protections des Données
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <!-- HEADER / NAVBAR (Pour les pages dans /pages/) -->
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-slate-100">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="../index.html" class="flex items-center space-x-2">
+                <img src="../assets/img/logo-financia.png" alt="FINANCIA Logo" class="h-8 w-auto">
+            </a>
+
+            <!-- Liens Desktop -->
+            <div class="hidden lg:flex items-center space-x-8 text-sm font-semibold">
+                <a href="../index.html#accueil"
+                    class="hover:text-financia-gold transition text-slate-700 py-1">Accueil</a>
+                <a href="../index.html#presentation"
+                    class="hover:text-financia-gold transition text-slate-700 py-1">Présentation</a>
+                <a href="../index.html#services" class="hover:text-financia-gold transition text-slate-700 py-1">Nos
+                    Services</a>
+                <a href="actualites.html" class="hover:text-financia-gold transition text-slate-700 py-1">Actualités</a>
+
+                <!-- PAGE ACTIVE -->
+                <a href="politique_confidentialite.html"
+                    class="text-financia-gold border-b-2 border-financia-gold pb-1 font-bold">Politique de
+                    Confidentialité</a>
+
+                <a href="mentions_legales.html" class="hover:text-financia-gold transition text-slate-700 py-1">Mentions
+                    Légales</a>
+                <a href="../index.html#contact"
+                    class="hover:text-financia-gold transition text-slate-700 py-1">Contact</a>
+            </div>
+
+            <!-- Bouton Hamburger Mobile -->
+            <div class="lg:hidden">
+                <button id="menu-btn" type="button"
+                    class="text-slate-700 hover:text-financia-gold focus:outline-none p-2" aria-label="Menu">
+                    <i class="fa-solid fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Menu Déroulant Mobile -->
+        <div id="mobile-menu"
+            class="hidden lg:hidden bg-white border-t border-slate-100 px-6 pt-4 pb-6 space-y-3 shadow-xl">
+            <a href="../index.html#accueil"
+                class="block text-slate-700 hover:text-financia-gold font-semibold text-sm py-2">Accueil</a>
+            <a href="../index.html#presentation"
+                class="block text-slate-700 hover:text-financia-gold font-semibold text-sm py-2">Présentation</a>
+            <a href="../index.html#services"
+                class="block text-slate-700 hover:text-financia-gold font-semibold text-sm py-2">Nos Services</a>
+            <a href="actualites.html"
+                class="block text-slate-700 hover:text-financia-gold font-semibold text-sm py-2">Actualités</a>
+            <a href="politique_confidentialite.html" class="block text-financia-gold font-bold text-sm py-2">Politique
+                de Confidentialité</a>
+            <a href="mentions_legales.html"
+                class="block text-slate-700 hover:text-financia-gold font-semibold text-sm py-2">Mentions Légales</a>
+            <a href="../index.html#contact"
+                class="block text-slate-700 hover:text-financia-gold font-semibold text-sm py-2">Contact</a>
+        </div>
+    </header>
+
+    <!-- BANNIÈRE EN-TÊTE -->
+    <section class="bg-gradient-to-br from-financia-dark_blue via-financia-blue to-slate-900 text-white py-14">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <span class="text-financia-gold font-bold text-xs uppercase tracking-wider">Sécurité & Respect de la vie
+                privée</span>
+            <h1 class="text-3xl sm:text-4xl font-extrabold mt-2">Politique de Confidentialité</h1>
+            <p class="text-slate-300 text-sm mt-2 max-w-xl mx-auto">Comment nous protégeons et traitons vos informations
+                personnelles.</p>
+        </div>
+    </section>
+
+    <!-- CONTENU PRINCIPAL -->
+    <main class="flex-grow max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-10">
+        <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm space-y-4">
+            <h2 class="text-2xl font-bold text-financia-blue border-b border-slate-100 pb-3">1. Collecte des Données
+            </h2>
+            <p class="text-slate-600 text-sm leading-relaxed">
+                Dans le cadre de nos activités de conseil et de services financiers, nous collectons des données
+                personnelles transmises via nos formulaires de contact (nom, adresse email, numéro de téléphone).
+            </p>
+        </div>
+
+        <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm space-y-4">
+            <h2 class="text-2xl font-bold text-financia-blue border-b border-slate-100 pb-3">2. Utilisation des
+                Informations</h2>
+            <p class="text-slate-600 text-sm leading-relaxed">
+                Vos données sont exclusivement utilisées pour traiter vos demandes de rendez-vous, vous apporter un
+                suivi personnalisé et vous adresser des communications relatives à nos services institutionnels.
+            </p>
+        </div>
+
+        <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm space-y-4">
+            <h2 class="text-2xl font-bold text-financia-blue border-b border-slate-100 pb-3">3. Vos Droits</h2>
+            <p class="text-slate-600 text-sm leading-relaxed">
+                Vous disposez à tout moment d'un droit d'accès, de rectification et de suppression de vos données
+                personnelles sur simple demande envoyée à <strong>contact@financia.ga</strong>.
+            </p>
+        </div>
+    </main>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="bg-financia-dark_blue text-slate-400 py-10 border-t border-slate-800 text-sm">
+        <div
+            class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center space-x-3">
+                <a href="#" class="flex items-center">
+                    <img src="assets/img/logo-financia.png" alt="FINANCIA - Solution Financière"
+                        class="h-10 sm:h-12 w-auto object-contain transition-transform hover:scale-105"
+                        onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'font-bold text-2xl text-financia-blue tracking-tight\'>FINANCIA<span class=\'text-financia-gold\'>.</span></span>';">
+                </a>
+            </div>
+
+            <p class="text-center md:text-left text-xs text-slate-500 font-normal">
+                &copy; 2026 FINANCIA. Tous droits réservés. Conçu pour le Défi KIMBA CONNECT par ONE-J TECH(LESDEVS).
+            </p>
+
+            <div class="flex space-x-6 text-xs">
+                <a href="mentions_legales.html" class="text-white">Mentions Légales</a>
+                <a href="politique_confidentialite.html" class="hover:text-white transition">Politique de
+                    Confidentialité</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        if (menuBtn && mobileMenu) {
+            menuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+    </script>
+
+</body>
+
+</html>

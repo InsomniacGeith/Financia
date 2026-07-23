@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toutes les Publications - FINANCIA</title>
+
+    <!-- Google Fonts : Cinzel -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- FontAwesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Palette personnalisée FINANCIA -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Cinzel', 'serif'],
+                    },
+                    colors: {
+
+                        financia: {
+                            dark_blue: '#171e27',
+                            dark: '#383838',
+                            gold: '#D4AF37',
+                            accent: '#d3d3d3',
+                            light: '#F8FAFC'
+                        }
+
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-financia-light text-slate-800 font-sans antialiased flex flex-col min-h-screen">
+
+    <!-- TOPBAR -->
+    <div class="bg-financia-dark text-slate-300 text-xs py-2 px-4 hidden md:block border-b border-slate-700">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-6">
+                <span><i class="fa-solid fa-envelope text-financia-gold mr-2"></i>contact@financia.ga</span>
+                <span><i class="fa-solid fa-phone text-financia-gold mr-2"></i>+241 01 00 00 00</span>
+                <span><i class="fa-solid fa-location-dot text-financia-gold mr-2"></i>Libreville, Gabon</span>
+            </div>
+            <div>
+                <span
+                    class="bg-emerald-500/10 text-emerald-400 text-[10px] px-2 py-0.5 rounded-full border border-emerald-500/20 font-semibold">
+                    <i class="fa-solid fa-shield-halved mr-1"></i> Kiosque d'Information
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <!-- HEADER / NAVBAR (Pour les pages dans /pages/) -->
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-slate-100">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="../index.html" class="flex items-center space-x-2">
+                <img src="../assets/img/logo-financia.png" alt="FINANCIA Logo" class="h-8 w-auto">
+            </a>
+
+            <!-- Liens Desktop -->
+            <div class="hidden lg:flex items-center space-x-8 text-sm font-semibold">
+                <a href="../index.html#accueil"
+                    class="hover:text-financia-gold transition text-slate-700 py-1">Accueil</a>
+                <a href="../index.html#presentation"
+                    class="hover:text-financia-gold transition text-slate-700 py-1">Présentation</a>
+                <a href="../index.html#services" class="hover:text-financia-gold transition text-slate-700 py-1">Nos
+                    Services</a>
+
+                <!-- PAGE ACTIVE -->
+                <a href="actualites.html"
+                    class="text-financia-gold border-b-2 border-financia-gold pb-1 font-bold">Actualités</a>
+
+                <a href="politique_confidentialite.html"
+                    class="hover:text-financia-gold transition text-slate-700 py-1">Politique de Confidentialité</a>
+                <a href="mentions_legales.html" class="hover:text-financia-gold transition text-slate-700 py-1">Mentions
+                    Légales</a>
+                <a href="../index.html#contact"
+                    class="hover:text-financia-gold transition text-slate-700 py-1">Contact</a>
+            </div>
+
+            <!-- Bouton Hamburger Mobile -->
+            <div class="lg:hidden">
+                <button id="menu-btn" type="button"
+                    class="text-slate-700 hover:text-financia-gold focus:outline-none p-2" aria-label="Menu">
+                    <i class="fa-solid fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Menu Déroulant Mobile -->
+        <div id="mobile-menu"
+            class="hidden lg:hidden bg-white border-t border-slate-100 px-6 pt-4 pb-6 space-y-3 shadow-xl">
+            <a href="../index.html#accueil"
+                class="block text-slate-700 hover:text-financia-gold font-semibold text-sm py-2">Accueil</a>
+            <a href="../index.html#presentation"
+                class="block text-slate-700 hover:text-financia-gold font-semibold text-sm py-2">Présentation</a>
+            <a href="../index.html#services"
+                class="block text-slate-700 hover:text-financia-gold font-semibold text-sm py-2">Nos Services</a>
+            <a href="actualites.html" class="block text-financia-gold font-bold text-sm py-2">Actualités</a>
+            <a href="politique_confidentialite.html"
+                class="block text-slate-700 hover:text-financia-gold font-semibold text-sm py-2">Politique de
+                Confidentialité</a>
+            <a href="mentions_legales.html"
+                class="block text-slate-700 hover:text-financia-gold font-semibold text-sm py-2">Mentions Légales</a>
+            <a href="../index.html#contact"
+                class="block text-slate-700 hover:text-financia-gold font-semibold text-sm py-2">Contact</a>
+        </div>
+    </header>
+
+    <!-- BANNIÈRE EN-TÊTE -->
+    <section class="bg-gradient-to-br from-financia-dark_blue via-financia-blue to-slate-900 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <span class="text-financia-gold font-bold text-xs uppercase tracking-wider">Espace Média & Analyses</span>
+            <h1 class="text-3xl sm:text-5xl font-extrabold mt-2">Toutes nos Publications</h1>
+            <p class="text-slate-300 text-sm sm:text-base mt-3 max-w-2xl mx-auto">Retrouvez nos analyses financières,
+                nos communiqués officiels et nos rapports d'études stratégiques.</p>
+        </div>
+    </section>
+
+    <!-- CONTENU PRINCIPAL DE LA PAGE ACTUALITÉS -->
+    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+
+        <!-- BARRE DE FILTRES ET RECHERCHE -->
+        <div class="flex flex-col sm:flex-row justify-between items-center gap-4 mb-12">
+            <div class="flex flex-wrap gap-2">
+                <button class="bg-financia-blue text-white px-4 py-2 rounded-xl text-xs font-bold">Tous</button>
+                <button
+                    class="bg-white text-slate-600 hover:bg-slate-100 border border-slate-200 px-4 py-2 rounded-xl text-xs font-semibold transition">Finance</button>
+                <button
+                    class="bg-white text-slate-600 hover:bg-slate-100 border border-slate-200 px-4 py-2 rounded-xl text-xs font-semibold transition">Économie</button>
+                <button
+                    class="bg-white text-slate-600 hover:bg-slate-100 border border-slate-200 px-4 py-2 rounded-xl text-xs font-semibold transition">Partenariat</button>
+            </div>
+            <div class="w-full sm:w-72">
+                <input type="text" placeholder="Rechercher un article..."
+                    class="w-full bg-white border border-slate-200 rounded-xl px-4 py-2 text-xs focus:outline-none focus:border-financia-gold shadow-sm">
+            </div>
+        </div>
+
+        <!-- GRILLE D'ARTICLES (6 ARTICLES) -->
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+            <!-- Article 1 -->
+            <article
+                class="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-md transition group">
+                <div class="relative h-48 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=800&q=80"
+                        alt="Modernisation digitale"
+                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                    <span
+                        class="absolute top-4 left-4 bg-financia-blue text-white text-xs font-bold px-3 py-1 rounded-full shadow">Finance</span>
+                </div>
+                <div class="p-6 space-y-3">
+                    <span class="text-xs text-slate-400 font-medium"><i class="fa-regular fa-calendar mr-1"></i> 27 Juin
+                        2026</span>
+                    <h2 class="text-lg font-bold text-slate-900 line-clamp-2">Lancement officiel du programme de
+                        modernisation digitale FINANCIA</h2>
+                    <p class="text-slate-600 text-sm line-clamp-3">FINANCIA franchit un nouveau cap dans sa
+                        transformation digitale pour offrir des services plus fluides à ses partenaires.</p>
+                </div>
+            </article>
+
+            <!-- Article 2 -->
+            <article
+                class="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-md transition group">
+                <div class="relative h-48 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?auto=format&fit=crop&w=800&q=80"
+                        alt="Perspectives économiques"
+                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                    <span
+                        class="absolute top-4 left-4 bg-financia-gold text-slate-900 text-xs font-bold px-3 py-1 rounded-full shadow">Économie</span>
+                </div>
+                <div class="p-6 space-y-3">
+                    <span class="text-xs text-slate-400 font-medium"><i class="fa-regular fa-calendar mr-1"></i> 15 Juin
+                        2026</span>
+                    <h2 class="text-lg font-bold text-slate-900 line-clamp-2">Perspectives économiques et opportunités
+                        d'investissement pour 2026</h2>
+                    <p class="text-slate-600 text-sm line-clamp-3">Découvrez notre rapport trimestriel sur les tendances
+                        du marché financier local et régional.</p>
+                </div>
+            </article>
+
+            <!-- Article 3 -->
+            <article
+                class="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-md transition group">
+                <div class="relative h-48 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=800&q=80"
+                        alt="Soutien aux PME"
+                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                    <span
+                        class="absolute top-4 left-4 bg-emerald-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow">Partenariat</span>
+                </div>
+                <div class="p-6 space-y-3">
+                    <span class="text-xs text-slate-400 font-medium"><i class="fa-regular fa-calendar mr-1"></i> 02 Juin
+                        2026</span>
+                    <h2 class="text-lg font-bold text-slate-900 line-clamp-2">Inclusion financière : FINANCIA renforce
+                        son soutien aux PME locales</h2>
+                    <p class="text-slate-600 text-sm line-clamp-3">Un nouveau dispositif de financement simplifié est
+                        mis en place pour accélérer la croissance des petites entreprises.</p>
+                </div>
+            </article>
+
+            <!-- Article 4 -->
+            <article
+                class="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-md transition group">
+                <div class="relative h-48 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80"
+                        alt="Conseil stratégique"
+                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                    <span
+                        class="absolute top-4 left-4 bg-financia-blue text-white text-xs font-bold px-3 py-1 rounded-full shadow">Finance</span>
+                </div>
+                <div class="p-6 space-y-3">
+                    <span class="text-xs text-slate-400 font-medium"><i class="fa-regular fa-calendar mr-1"></i> 20 Mai
+                        2026</span>
+                    <h2 class="text-lg font-bold text-slate-900 line-clamp-2">Optimisation de portefeuille d'actifs :
+                        les bonnes pratiques</h2>
+                    <p class="text-slate-600 text-sm line-clamp-3">Nos experts détaillent les mécanismes d'ingénierie
+                        financière adaptés aux marchés émergents.</p>
+                </div>
+            </article>
+
+            <!-- Article 5 -->
+            <article
+                class="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-md transition group">
+                <div class="relative h-48 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?auto=format&fit=crop&w=800&q=80"
+                        alt="Investissement durable"
+                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                    <span
+                        class="absolute top-4 left-4 bg-financia-gold text-slate-900 text-xs font-bold px-3 py-1 rounded-full shadow">Économie</span>
+                </div>
+                <div class="p-6 space-y-3">
+                    <span class="text-xs text-slate-400 font-medium"><i class="fa-regular fa-calendar mr-1"></i> 05 Mai
+                        2026</span>
+                    <h2 class="text-lg font-bold text-slate-900 line-clamp-2">Financement vert et responsabilité
+                        sociétale en Afrique Centrale</h2>
+                    <p class="text-slate-600 text-sm line-clamp-3">Comment FINANCIA accompagne la transition écologique
+                        à travers la structuration de projets écoresponsables.</p>
+                </div>
+            </article>
+
+            <!-- Article 6 -->
+            <article
+                class="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-md transition group">
+                <div class="relative h-48 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=800&q=80"
+                        alt="Conférence annuelle"
+                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                    <span
+                        class="absolute top-4 left-4 bg-emerald-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow">Partenariat</span>
+                </div>
+                <div class="p-6 space-y-3">
+                    <span class="text-xs text-slate-400 font-medium"><i class="fa-regular fa-calendar mr-1"></i> 18
+                        Avril 2026</span>
+                    <h2 class="text-lg font-bold text-slate-900 line-clamp-2">Retour sur le sommet régional des banques
+                        d'affaires</h2>
+                    <p class="text-slate-600 text-sm line-clamp-3">SYNTHÈSE : FINANCIA a réuni les acteurs majeurs du
+                        secteur pour échanger sur le développement des marchés de capitaux.</p>
+                </div>
+            </article>
+
+        </div>
+
+        <!-- PAGINATION -->
+        <div class="flex justify-center items-center space-x-2 mt-16">
+            <span
+                class="w-9 h-9 rounded-xl bg-financia-blue text-white flex items-center justify-center font-bold text-xs shadow">1</span>
+            <a href="#"
+                class="w-9 h-9 rounded-xl bg-white border border-slate-200 text-slate-600 hover:bg-slate-100 flex items-center justify-center font-bold text-xs transition">2</a>
+            <a href="#"
+                class="w-9 h-9 rounded-xl bg-white border border-slate-200 text-slate-600 hover:bg-slate-100 flex items-center justify-center font-bold text-xs transition"><i
+                    class="fa-solid fa-chevron-right text-[10px]"></i></a>
+        </div>
+
+    </main>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="bg-financia-dark_blue text-slate-400 py-10 border-t border-slate-800 text-sm">
+        <div
+            class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center space-x-3">
+                <a href="#" class="flex items-center">
+                    <img src="assets/img/logo-financia.png" alt="FINANCIA - Solution Financière"
+                        class="h-10 sm:h-12 w-auto object-contain transition-transform hover:scale-105"
+                        onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'font-bold text-2xl text-financia-blue tracking-tight\'>FINANCIA<span class=\'text-financia-gold\'>.</span></span>';">
+                </a>
+            </div>
+
+            <p class="text-center md:text-left text-xs text-slate-500 font-normal">
+                &copy; 2026 FINANCIA. Tous droits réservés. Conçu pour le Défi KIMBA CONNECT par ONE-J TECH(LESDEVS).
+            </p>
+
+            <div class="flex space-x-6 text-xs">
+                <a href="mentions_legales.html" class="text-white">Mentions Légales</a>
+                <a href="politique_confidentialite.html" class="hover:text-white transition">Politique de
+                    Confidentialité</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    if (menuBtn && mobileMenu) {
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    }
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FINANCIA - Solution & Inclusions Financières</title>
+
+    <!-- Google Fonts : Cinzel -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- FontAwesome CDN pour les icônes -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Palette personnalisée FINANCIA & Configuration Globale de la Police -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+
+                        sans: ['Cinzel', 'serif'],
+                    },
+                    colors: {
+                        financia: {
+                            dark_blue: '#171e27',
+                            dark: '#383838',
+                            gold: '#D4AF37',
+                            accent: '#d3d3d3',
+                            light: '#F8FAFC'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-financia-light text-slate-800 font-sans antialiased">
+
+    <!-- ==================== TOPBAR ==================== -->
+    <div class="bg-financia-dark text-slate-300 text-xs py-2 px-4 hidden md:block border-b border-slate-700">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-6">
+                <span><i class="fa-solid fa-envelope text-financia-gold mr-2"></i>contact@financia.ga</span>
+                <span><i class="fa-solid fa-phone text-financia-gold mr-2"></i>+241 01 00 00 00</span>
+                <span><i class="fa-solid fa-location-dot text-financia-gold mr-2"></i>Libreville, Gabon</span>
+            </div>
+            <div class="flex items-center space-x-4">
+                <span
+                    class="bg-emerald-500/10 text-emerald-400 text-[10px] px-2 py-0.5 rounded-full border border-emerald-500/20 font-semibold">
+                    <i class="fa-solid fa-shield-halved mr-1"></i> Plateforme Sécurisée
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <!-- HEADER / NAVBAR (Pour index.html à la racine) -->
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-slate-100">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="index.html" class="flex items-center space-x-2">
+                <img src="assets/img/logo-financia.png" alt="FINANCIA Logo" class="h-8 w-auto">
+            </a>
+
+            <!-- Liens Desktop -->
+            <div class="hidden lg:flex items-center space-x-8 text-sm font-semibold">
+                <a href="#accueil"
+                    class="nav-link hover:text-financia-gold transition text-slate-700 py-1 border-b-2 border-transparent">Accueil</a>
+                <a href="#presentation"
+                    class="nav-link hover:text-financia-gold transition text-slate-700 py-1 border-b-2 border-transparent">Présentation</a>
+                <a href="#services"
+                    class="nav-link hover:text-financia-gold transition text-slate-700 py-1 border-b-2 border-transparent">Nos
+                    Services</a>
+                <a href="pages/actualites.html"
+                    class="hover:text-financia-gold transition text-slate-700 py-1">Actualités</a>
+                <a href="pages/politique_confidentialite.html"
+                    class="hover:text-financia-gold transition text-slate-700 py-1">Politique de Confidentialité</a>
+                <a href="pages/mentions_legales.html"
+                    class="hover:text-financia-gold transition text-slate-700 py-1">Mentions Légales</a>
+                <a href="#contact"
+                    class="nav-link hover:text-financia-gold transition text-slate-700 py-1 border-b-2 border-transparent">Contact</a>
+            </div>
+
+            <!-- Bouton Hamburger Mobile -->
+            <div class="lg:hidden">
+                <button id="menu-btn" type="button"
+                    class="text-slate-700 hover:text-financia-gold focus:outline-none p-2" aria-label="Menu">
+                    <i class="fa-solid fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Menu Déroulant Mobile -->
+        <div id="mobile-menu"
+            class="hidden lg:hidden bg-white border-t border-slate-100 px-6 pt-4 pb-6 space-y-3 shadow-xl">
+            <a href="#accueil"
+                class="mobile-nav-link block text-slate-700 hover:text-financia-gold font-semibold text-sm py-2">Accueil</a>
+            <a href="#presentation"
+                class="mobile-nav-link block text-slate-700 hover:text-financia-gold font-semibold text-sm py-2">Présentation</a>
+            <a href="#services"
+                class="mobile-nav-link block text-slate-700 hover:text-financia-gold font-semibold text-sm py-2">Nos
+                Services</a>
+            <a href="pages/actualites.html"
+                class="block text-slate-700 hover:text-financia-gold font-semibold text-sm py-2">Actualités</a>
+            <a href="pages/politique_confidentialite.html"
+                class="block text-slate-700 hover:text-financia-gold font-semibold text-sm py-2">Politique de
+                Confidentialité</a>
+            <a href="pages/mentions_legales.html"
+                class="block text-slate-700 hover:text-financia-gold font-semibold text-sm py-2">Mentions Légales</a>
+            <a href="#contact"
+                class="mobile-nav-link block text-slate-700 hover:text-financia-gold font-semibold text-sm py-2">Contact</a>
+            <div class="pt-2">
+                <a href="#contact"
+                    class="block text-center bg-financia-dark_blue hover:bg-slate-800 text-financia-gold text-sm font-semibold px-5 py-2.5 rounded-xl transition">
+                    Contactez-nous
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ==================== HERO SECTION ==================== -->
+    <section id="accueil"
+        class="relative bg-gradient-to-br from-financia-dark_blue via-financia-blue to-slate-900 text-white py-20 lg:py-28 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 grid lg:grid-cols-2 gap-12 items-center">
+            <div class="space-y-6 text-center lg:text-left">
+                <span
+                    class="inline-block bg-white/10 text-financia-gold text-xs font-bold uppercase tracking-wider px-3.5 py-1.5 rounded-full border border-white/10">
+                    <i class="fa-solid fa-award mr-1.5"></i>Première banque d'affaires indépendante en Afrique Centrale
+                </span>
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black leading-tight">
+                    FINANCIA Capital est une filiale du groupe <span class="text-financia-gold">FINANCIA</span>.
+                </h1>
+                <p class="text-slate-300 text-base sm:text-lg max-w-xl mx-auto lg:mx-0 font-normal">
+                    FINANCIA Capital a une clientèle diversifiée (États, Institutionnels, clientèle privée) et leur
+                    offre un éventail de services financiers incluant le Conseil Financier, l’Ingénierie Financière, la
+                    Structuration de Projets, l’Intermédiation Financière ainsi que la Gestion de Fonds et de
+                    Patrimoine.
+                </p>
+                <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+                    <a href="#services"
+                        class="w-full sm:w-auto bg-financia-gold hover:bg-yellow-500 text-slate-900 font-bold px-7 py-3.5 rounded-xl transition shadow-lg text-center">
+                        Explorer nos solutions
+                    </a>
+                    <a href="#presentation"
+                        class="w-full sm:w-auto bg-white/10 hover:bg-white/20 border border-white/20 text-white font-semibold px-7 py-3.5 rounded-xl transition text-center">
+                        En savoir plus
+                    </a>
+                </div>
+            </div>
+
+            <!-- Illustration / Carte Visuelle -->
+            <div class="relative flex justify-center">
+                <div
+                    class="w-full max-w-md bg-white/10 backdrop-blur-xl border border-white/20 p-8 rounded-3xl shadow-2xl space-y-6">
+                    <div class="flex justify-between items-center pb-4 border-b border-white/10">
+                        <div>
+                            <p class="text-xs text-slate-300 uppercase">Actifs sous gestion</p>
+                            <p class="text-2xl font-bold text-white">Confiance & Stabilité</p>
+                        </div>
+                        <i class="fa-solid fa-vault text-3xl text-financia-gold"></i>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-white/5 p-4 rounded-2xl border border-white/5">
+                            <i class="fa-solid fa-users text-financia-gold text-xl mb-1"></i>
+                            <p class="text-xl font-bold">100%</p>
+                            <p class="text-xs text-slate-400">Engagés à vos côtés</p>
+                        </div>
+                        <div class="bg-white/5 p-4 rounded-2xl border border-white/5">
+                            <i class="fa-solid fa-lock text-emerald-400 text-xl mb-1"></i>
+                            <p class="text-xl font-bold">Sécurisé</p>
+                            <p class="text-xs text-slate-400">Normes internationales</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== PRÉSENTATION ==================== -->
+    <section id="presentation" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6">
+                    <span class="text-financia-gold font-bold text-sm uppercase tracking-wider">Qui sommes-nous ?</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-financia-blue">
+                        Un partenaire stratégique pour bâtir votre avenir financier
+                    </h2>
+                    <p class="text-slate-600 leading-relaxed font-normal">
+                        FINANCIA est une institution dédiée à l'accompagnement financier, offrant une gamme intégrée de
+                        produits et services conçus pour soutenir la croissance économique, l'investissement et la
+                        gestion de patrimoine.
+                    </p>
+
+                    <div class="space-y-3 pt-2">
+                        <div class="flex items-start space-x-3">
+                            <i class="fa-solid fa-circle-check text-financia-gold mt-1"></i>
+                            <span class="text-slate-700 font-medium">Transparence totale et gouvernance
+                                rigoureuse</span>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <i class="fa-solid fa-circle-check text-financia-gold mt-1"></i>
+                            <span class="text-slate-700 font-medium">Solutions sur-mesure pour PME, Grandes Entreprises
+                                et Particuliers</span>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <i class="fa-solid fa-circle-check text-financia-gold mt-1"></i>
+                            <span class="text-slate-700 font-medium">Innovation digitale pour une gestion accessible
+                                24/7</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chiffres Clés -->
+                <div class="grid grid-cols-2 gap-6">
+                    <div class="bg-financia-light p-6 rounded-2xl border border-slate-200 text-center">
+                        <i class="fa-solid fa-briefcase text-3xl text-financia-blue mb-3"></i>
+                        <h3 class="text-3xl font-black text-slate-900">15+</h3>
+                        <p class="text-sm text-slate-500 font-medium">Années d'expertise</p>
+                    </div>
+                    <div class="bg-financia-light p-6 rounded-2xl border border-slate-200 text-center">
+                        <i class="fa-solid fa-money-bill-transfer text-3xl text-financia-blue mb-3"></i>
+                        <h3 class="text-3xl font-black text-slate-900">+ de 700 M€</h3>
+                        <p class="text-sm text-slate-500 font-medium">Transactions bouclées</p>
+                    </div>
+                    <div class="bg-financia-light p-6 rounded-2xl border border-slate-200 text-center">
+                        <i class="fa-solid fa-building-columns text-3xl text-financia-blue mb-3"></i>
+                        <h3 class="text-3xl font-black text-slate-900">24/7</h3>
+                        <p class="text-sm text-slate-500 font-medium">Disponibilité des services</p>
+                    </div>
+                    <div class="bg-financia-light p-6 rounded-2xl border border-slate-200 text-center">
+                        <i class="fa-solid fa-file-contract text-3xl text-financia-blue mb-3"></i>
+                        <h3 class="text-3xl font-black text-slate-900">+ de 15</h3>
+                        <p class="text-sm text-slate-500 font-medium">Transactions majeures</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== NOS SERVICES ==================== -->
+    <section id="services" class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
+                <span class="text-financia-gold font-bold text-sm uppercase tracking-wider">Nos Solutions</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-financia-blue">Des services financiers adaptés à
+                    chaque besoin</h2>
+                <p class="text-slate-600 font-normal">Découvrez nos produits structurés pour dynamiser vos projets
+                    personnels et professionnels.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Carte Service 1 -->
+                <div
+                    class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 hover:shadow-md transition group">
+                    <div
+                        class="w-14 h-14 bg-blue-50 text-financia-blue rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:bg-financia-blue group-hover:text-white transition">
+                        <i class="fa-solid fa-chart-pie"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Conseil en Investissement</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-4 font-normal">
+                        Analyse financière personnalisée et recommandations stratégiques pour maximiser le rendement de
+                        vos placements.
+                    </p>
+                    <a href="#contact"
+                        class="text-financia-blue font-semibold text-sm inline-flex items-center hover:underline">
+                        En savoir plus <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+                    </a>
+                </div>
+
+                <!-- Carte Service 2 -->
+                <div
+                    class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 hover:shadow-md transition group">
+                    <div
+                        class="w-14 h-14 bg-amber-50 text-financia-gold rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:bg-financia-gold group-hover:text-slate-900 transition">
+                        <i class="fa-solid fa-coins"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Financement & Crédit</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-4 font-normal">
+                        Solutions d'emprunt souples et compétitives destinées au financement de projets d'entreprise et
+                        d'équipements.
+                    </p>
+                    <a href="#contact"
+                        class="text-financia-blue font-semibold text-sm inline-flex items-center hover:underline">
+                        En savoir plus <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+                    </a>
+                </div>
+
+                <!-- Carte Service 3 -->
+                <div
+                    class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 hover:shadow-md transition group">
+                    <div
+                        class="w-14 h-14 bg-indigo-50 text-indigo-600 rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:bg-indigo-600 group-hover:text-white transition">
+                        <i class="fa-solid fa-piggy-bank"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Épargne & Placement</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-4 font-normal">
+                        Comptes d'épargne performants et opportunités de placement sécurisées à moyen et long terme.
+                    </p>
+                    <a href="#contact"
+                        class="text-financia-blue font-semibold text-sm inline-flex items-center hover:underline">
+                        En savoir plus <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== ACTUALITÉS ==================== -->
+    <section id="actualites" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+                <div>
+                    <span class="text-financia-gold font-bold text-sm uppercase tracking-wider">Publications &
+                        Actualités</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-financia-blue mt-2">Dernières informations</h2>
+                </div>
+                <a href="pages/actualites.html"
+                    class="hidden md:inline-flex items-center text-financia-blue font-bold hover:underline mt-4 md:mt-0">
+                    Voir toutes les publications <i class="fa-solid fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Article 1 : Finance / Modernisation Digitale -->
+                <article
+                    class="bg-financia-light rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-md transition group">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=800&q=80"
+                            alt="Modernisation digitale FINANCIA"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                        <span
+                            class="absolute top-4 left-4 bg-financia-blue text-white text-xs font-bold px-3 py-1 rounded-full shadow-md">Finance</span>
+                    </div>
+                    <div class="p-6 space-y-3">
+                        <span class="text-xs text-slate-400 font-medium"><i class="fa-regular fa-calendar mr-1"></i> 27
+                            Juin 2026</span>
+                        <h3 class="text-lg font-bold text-slate-900 line-clamp-2">Lancement officiel du programme de
+                            modernisation digitale FINANCIA</h3>
+                        <p class="text-slate-600 text-sm line-clamp-3 font-normal">FINANCIA franchit un nouveau cap dans
+                            sa transformation digitale pour offrir des services plus fluides à ses partenaires.</p>
+                    </div>
+                </article>
+
+                <!-- Article 2 : Économie & Investissement -->
+                <article
+                    class="bg-financia-light rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-md transition group">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?auto=format&fit=crop&w=800&q=80"
+                            alt="Perspectives économiques et investissement"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                        <span
+                            class="absolute top-4 left-4 bg-financia-gold text-slate-900 text-xs font-bold px-3 py-1 rounded-full shadow-md">Économie</span>
+                    </div>
+                    <div class="p-6 space-y-3">
+                        <span class="text-xs text-slate-400 font-medium"><i class="fa-regular fa-calendar mr-1"></i> 15
+                            Juin 2026</span>
+                        <h3 class="text-lg font-bold text-slate-900 line-clamp-2">Perspectives économiques et
+                            opportunités d'investissement pour 2026</h3>
+                        <p class="text-slate-600 text-sm line-clamp-3 font-normal">Découvrez notre rapport trimestriel
+                            sur les tendances du marché financier local et régional.</p>
+                    </div>
+                </article>
+
+                <!-- Article 3 : Partenariat & PME -->
+                <article
+                    class="bg-financia-light rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-md transition group">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=800&q=80"
+                            alt="Soutien aux PME locales"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                        <span
+                            class="absolute top-4 left-4 bg-emerald-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md">Partenariat</span>
+                    </div>
+                    <div class="p-6 space-y-3">
+                        <span class="text-xs text-slate-400 font-medium"><i class="fa-regular fa-calendar mr-1"></i> 02
+                            Juin 2026</span>
+                        <h3 class="text-lg font-bold text-slate-900 line-clamp-2">Inclusion financière : FINANCIA
+                            renforce son soutien aux PME locales</h3>
+                        <p class="text-slate-600 text-sm line-clamp-3 font-normal">Un nouveau dispositif de financement
+                            simplifié est mis en place pour accélérer la croissance des petites entreprises.</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CONTACT & LOCALISATION ==================== -->
+    <section id="contact" class="py-20 bg-slate-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12">
+                <!-- Formulaire de Contact -->
+                <div class="space-y-6">
+                    <div>
+                        <span
+                            class="text-financia-gold text-sm font-bold uppercase tracking-wider">Contactez-nous</span>
+                        <h2 class="text-3xl font-extrabold text-white mt-1">Laissez-nous un message</h2>
+                        <p class="text-slate-400 text-sm mt-2 font-normal">Notre équipe vous répondra dans un délai
+                            maximum de 24 heures ouvrées.</p>
+                    </div>
+
+                    <form id="contactForm" class="space-y-4">
+                        <div class="grid sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-semibold uppercase text-slate-300 mb-1">Nom complet
+                                    *</label>
+                                <input type="text" required placeholder="Votre nom"
+                                    class="w-full bg-slate-800 border border-slate-700 rounded-xl p-3 text-white placeholder-slate-500 focus:outline-none focus:border-financia-gold">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold uppercase text-slate-300 mb-1">Email *</label>
+                                <input type="email" required placeholder="adresse@email.com"
+                                    class="w-full bg-slate-800 border border-slate-700 rounded-xl p-3 text-white placeholder-slate-500 focus:outline-none focus:border-financia-gold">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold uppercase text-slate-300 mb-1">Objet</label>
+                            <input type="text" placeholder="Demande d'information / Rendez-vous"
+                                class="w-full bg-slate-800 border border-slate-700 rounded-xl p-3 text-white placeholder-slate-500 focus:outline-none focus:border-financia-gold">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold uppercase text-slate-300 mb-1">Message *</label>
+                            <textarea rows="4" required placeholder="Votre message ici..."
+                                class="w-full bg-slate-800 border border-slate-700 rounded-xl p-3 text-white placeholder-slate-500 focus:outline-none focus:border-financia-gold"></textarea>
+                        </div>
+                        <button type="submit"
+                            class="w-full bg-financia-gold hover:bg-yellow-500 text-slate-900 font-bold py-3.5 rounded-xl transition shadow-lg">
+                            <i class="fa-solid fa-paper-plane mr-2"></i> Envoyer le message
+                        </button>
+                    </form>
+
+                    <div id="formFeedback"
+                        class="hidden p-4 bg-emerald-500/20 border border-emerald-500/40 text-emerald-300 rounded-xl text-sm text-center">
+                        <i class="fa-solid fa-circle-check mr-2"></i> Message envoyé avec succès !
+                    </div>
+                </div>
+
+                <!-- Infos & Carte de Localisation -->
+                <div class="space-y-6 flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <h3 class="text-xl font-bold text-white mb-4">Coordonnées institutionnelles</h3>
+                        <div class="flex items-start space-x-4">
+                            <div
+                                class="w-10 h-10 bg-slate-800 rounded-xl flex items-center justify-center text-financia-gold">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm font-semibold text-white">Adresse Siège Social</p>
+                                <p class="text-sm text-slate-400 font-normal">Boulevard Triomphal, Libreville - Gabon
+                                </p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div
+                                class="w-10 h-10 bg-slate-800 rounded-xl flex items-center justify-center text-financia-gold">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm font-semibold text-white">Téléphone</p>
+                                <p class="text-sm text-slate-400 font-normal">+241 01 00 00 00 / +241 07 00 00 00</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Carte Iframe Google Maps -->
+                    <div class="w-full h-64 rounded-2xl overflow-hidden border border-slate-700 shadow-inner">
+                        <iframe class="w-full h-full border-0"
+                            src="https://maps.google.com/maps?q=Libreville&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                            allowfullscreen="" loading="lazy">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="bg-financia-dark_blue text-slate-400 py-10 border-t border-slate-800 text-sm">
+        <div
+            class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center space-x-3">
+                <a href="#" class="flex items-center">
+                    <img src="assets/img/logo-financia.png" alt="FINANCIA - Solution Financière"
+                        class="h-10 sm:h-12 w-auto object-contain transition-transform hover:scale-105"
+                        onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'font-bold text-2xl text-financia-blue tracking-tight\'>FINANCIA<span class=\'text-financia-gold\'>.</span></span>';">
+                </a>
+            </div>
+
+            <p class="text-center md:text-left text-xs text-slate-500 font-normal">
+                &copy; 2026 FINANCIA. Tous droits réservés. Conçu pour le Défi KIMBA CONNECT par ONE-J TECH(LESDEVS).
+            </p>
+
+            <div class="flex space-x-6 text-xs">
+                <a href="pages/mentions_legales.html" class="text-white">Mentions Légales</a>
+                <a href="pages/politique_confidentialite.html" class="hover:text-white transition">Politique de
+                    Confidentialité</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script JS Interactif -->
+    <script>
+    // Toggle Menu Mobile
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    menuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+    });
+
+    // Fermer le menu mobile au clic sur un lien
+    document.querySelectorAll('.mobile-nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+        });
+    });
+
+    // Feedback Formulaire Express
+    const form = document.getElementById('contactForm');
+    const feedback = document.getElementById('formFeedback');
+
+    if (form) {
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            feedback.classList.remove('hidden');
+            form.reset();
+            setTimeout(() => {
+                feedback.classList.add('hidden');
+            }, 5000);
+        });
+    }
+
+    // IntersectionObserver pour surligner dynamiquement le menu selon la section visible
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
+    const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+    const observerOptions = {
+        root: null,
+        rootMargin: '-20% 0px -50% 0px',
+        threshold: 0
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const currentId = entry.target.getAttribute('id');
+
+                // Met à jour la Navbar Desktop
+                navLinks.forEach(link => {
+                    const href = link.getAttribute('href');
+                    if (href === `#${currentId}`) {
+                        link.classList.add('text-financia-gold', 'border-financia-gold');
+                        link.classList.remove('text-slate-700', 'border-transparent');
+                    } else {
+                        link.classList.remove('text-financia-gold', 'border-financia-gold');
+                        link.classList.add('text-slate-700', 'border-transparent');
+                    }
+                });
+
+                // Met à jour la Navbar Mobile
+                mobileNavLinks.forEach(link => {
+                    const href = link.getAttribute('href');
+                    if (href === `#${currentId}`) {
+                        link.classList.add('text-financia-gold', 'font-bold');
+                        link.classList.remove('text-slate-700');
+                    } else {
+                        link.classList.remove('text-financia-gold', 'font-bold');
+                        link.classList.add('text-slate-700');
+                    }
+                });
+            }
+        });
+    }, observerOptions);
+
+    sections.forEach(section => observer.observe(section));
+</script>
+</body>
+
+</html>
